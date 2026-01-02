@@ -72,9 +72,9 @@ class VideoDecoder:
           kill_while_loop = True
           break
 
-      for i, bit in enumerate(corrected_frame_bits):
-        print(bit, end='' if (i + 1) % self.frame_bits_num_per_interval != 0 else '\n')
-      print("")
+      # for i, bit in enumerate(corrected_frame_bits):
+      #   print(bit, end='' if (i + 1) % self.frame_bits_num_per_interval != 0 else '\n')
+      # print("")
 
     return corrected_frame_bits
 
@@ -134,15 +134,17 @@ class VideoDecoder:
 def main():
   # vd = VideoDecoder('Very secret message! (0xFF, 0.1s).mp4')
   vd = VideoDecoder('Secret (0xFF, 0.1s).mp4')
-  # vd = VideoDecoder('20251213_220234.mp4')
+  # vd = VideoDecoder('Secret (0xFF, 0.01s).mp4')
+  # vd = VideoDecoder('Secret (0xFF, 0.001s).mp4')
+  # vd = VideoDecoder('Secret (0xFF, 0.01s, 240fps).mp4')
 
   frame_bits = vd.grab_frame_bits()
-  # frame_bits = vd.wait_for_zero(frame_bits)
+  frame_bits = vd.wait_for_zero(frame_bits)
   # frame_bits = vd.correct_frame_bits(frame_bits)
-  print("Frame bits:")
-  for i, bit in enumerate(frame_bits):
-    print(bit, end='' if (i + 1) % vd.frame_bits_num_per_interval != 0 else '\n')
-  print("")
+  # print("Frame bits:")
+  # for i, bit in enumerate(frame_bits):
+  #   print(bit, end='' if (i + 1) % vd.frame_bits_num_per_interval != 0 else '\n')
+  # print("")
 
   frame_bits = vd.find_header_in_frame_bits(frame_bits)
   frame_bits = vd.correct_frame_bits(frame_bits)

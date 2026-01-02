@@ -1,4 +1,7 @@
 **/__pycache__/
-20251213_220234*.mp4
+20251213_220234.mp4
 slowmo.mp4
 Very secret message! (0xFF, 0.1s).mp4
+Secret (0xFF, 0.01s).mp4
+Secret (0xFF, 0.001s).mp4
+Secret (0xFF, 0.01s, 240fps).mp4

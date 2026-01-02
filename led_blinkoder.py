@@ -83,7 +83,7 @@ class TouchpadLEDCoder:
       else:
         break
 
-      sleep(self.model_layout.try_sleep)
+      time.sleep(self.model_layout.try_sleep)
 
 
   def activate_numlock(self, brightness):
